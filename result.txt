@@ -1,0 +1,43 @@
+"The quick brown fox jumps over the lazy dog"
+"A fast brown fox leaps over a sleepy canine"
+
+String Similarity (0.4419):
+
+
+Uses Levenshtein distance (edit distance)
+Score of 0.4419 means about 44% of characters match/align
+Lower score because it's comparing character-by-character
+Sensitive to word order and exact spelling
+
+
+Token Similarity (0.2095):
+
+
+Uses TF-IDF vectors
+Score of 0.2095 indicates limited word overlap after weighing importance
+Lower because it considers word frequency and importance
+Common words like "over" get less weight than unique words
+
+
+Semantic Similarity (0.8465):
+
+
+Uses transformer embeddings
+Highest score (0.8465) because it captures meaning
+Recognizes that "quick/fast", "lazy/sleepy", "dog/canine" are semantically similar
+Best at understanding the overall meaning despite different words
+
+
+Cosine Similarity (0.2727):
+
+
+Uses raw word frequency vectors
+Score of 0.2727 shows moderate word overlap
+Only shared words: "brown", "fox", "over"
+Doesn't consider word meaning, just presence/absence
+
+For these sentences, semantic similarity gives the most intuitive result because:
+
+The sentences express the same basic concept
+Many words are synonyms (quick/fast, lazy/sleepy, dog/canine)
+The basic structure is the same

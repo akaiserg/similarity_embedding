@@ -1,0 +1,53 @@
+
+1. Equal Weights Combination (50-50 split between semantic and Levenshtein):
+```python
+Combined score: 0.6442
+- Semantic: 0.8465 (high semantic similarity)
+- Levenshtein: 0.4419 (moderate string similarity)
+```
+This balanced approach shows that while the sentences mean almost the same thing (0.8465), they have significant character-level differences (0.4419).
+
+2. Custom Weights Combination (60% semantic, 20% TF-IDF, 20% cosine):
+```python
+Combined score: 0.6043
+- Semantic: 0.8465 (high semantic similarity)
+- TF-IDF: 0.2095 (low term frequency similarity)
+- Cosine: 0.2727 (low word overlap similarity)
+```
+This weighting emphasizes meaning over exact word matches, which is why the combined score is still relatively high despite low TF-IDF and cosine scores.
+
+3. Adaptive Combination:
+```python
+Combined score: 0.5234
+Weights used:
+- Semantic: 40%
+- Levenshtein: 20%
+- TF-IDF: 20%
+- Cosine: 20%
+```
+The adaptive method chose a balanced weight distribution because:
+- The texts have similar lengths
+- There's moderate word overlap
+- The meaning is similar but vocabulary differs
+
+Recommendations for choosing weights:
+
+1. For meaning-focused comparison:
+```python
+methods=['semantic', 'tfidf']
+weights=[0.8, 0.2]
+```
+
+2. For exact matching:
+```python
+methods=['levenshtein', 'cosine']
+weights=[0.7, 0.3]
+```
+
+3. For balanced comparison:
+```python
+methods=['semantic', 'levenshtein', 'tfidf', 'cosine']
+weights=[0.4, 0.2, 0.2, 0.2]
+```
+
+Would you like to try different weight combinations or see how these scores change with different types of text pairs?
